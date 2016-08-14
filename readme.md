@@ -9,7 +9,7 @@ To build `dist` folder for deployment:
 
 ```
 npm build
-``
+```
 
 On Vagrant/Homestead?
 
