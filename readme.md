@@ -11,7 +11,7 @@ To build `dist` folder for deployment:
 npm build
 ```
 
-On Vagrant/Homestead?
+## On Vagrant/Homestead?
 
 Tweak `package.json`:
 
@@ -27,4 +27,12 @@ watchOptions: {
 }
 ```
 
-And add port forwarding on port 8080 guest.
+After running `npm start`, if you can't access `localhost:8080` from your browser, [set up port forwarding](https://www.vagrantup.com/docs/networking/forwarded_ports.html) in your vagrantfile:
+
+```
+Vagrant.configure("2") do |config|
+  config.vm.network "forwarded_port", guest: 8080, host: 8888
+end
+```
+
+Which would make the site available at `localhost:8888`.
